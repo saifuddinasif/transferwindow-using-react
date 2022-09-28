@@ -1,0 +1,23 @@
+.home-container{
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 5px;
+
+}
+
+.search-input{
+
+    padding: 15px;
+   width: 55%;
+
+}
+
+.search-btn{
+    padding: 16px 18px;
+    background-color: blue;
+    border: none;
+    color: white;
+    font-weight: 600;
+
+}
