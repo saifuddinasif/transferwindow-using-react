@@ -1,9 +1,26 @@
 import React from 'react';
+import SinglePlayer from '../SinglePlayer/SinglePlayer';
+import './Player.css'
 
-const Player = () => {
+
+const Player = ({players}) => {
+    console.log(players);
     return (
         <div>
-            <h1>scscsd</h1>
+
+       <div className="card-container">
+         
+       {players?.map((pd) => (
+
+           <SinglePlayer  player={pd}
+           key={pd.idPlayer}
+           ></SinglePlayer>
+
+       ))}
+
+
+        </div>   
+           
         </div>
     );
 };

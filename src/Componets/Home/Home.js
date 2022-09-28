@@ -30,7 +30,7 @@ const [players, setPlayers] = useState([]);
         <button className='search-btn'>Search</button>
             <div className="players-container">
 
-                <Player></Player>
+                <Player players={players}></Player>
             </div>
     
        </div>
