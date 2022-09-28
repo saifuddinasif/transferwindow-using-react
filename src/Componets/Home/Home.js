@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import Player from '../Player/Player';
 import './Home.css';
+import {  toast } from 'react-toastify';
+import Swal from "sweetalert2";
 
 
 const Home = () => {
 /* eta notice kora important kokon [ ] hobe ar kokon { } hobe  */
 const [players, setPlayers] = useState([]);
+const [cart, setCart] = useState([]);
   const [search, setSearch] = useState("");
   
   useEffect(() => {
@@ -18,7 +21,17 @@ const [players, setPlayers] = useState([]);
       });
   }, [search]);
  
-    console.log(players);
+
+  const handleDelete = (id) => {
+    const leftPlayer = cart.filter((pd) => pd.idPlayer !== id);
+    setCart(leftPlayer);
+    toast("wow deleted form cart!");
+    Swal.fire("Good job!", "You clicked the button!", "success");
+
+
+
+
+    }
 
 
     return (
@@ -30,7 +43,7 @@ const [players, setPlayers] = useState([]);
         <button className='search-btn'>Search</button>
             <div className="players-container">
 
-                <Player players={players}></Player>
+                <Player players={players} cart={cart} setCart ={setCart}></Player>
             </div>
     
        </div>
@@ -38,6 +51,18 @@ const [players, setPlayers] = useState([]);
        <div className="right-side">
        <div className="cart">
         <p>This is player Cart </p>
+
+        {
+        cart.map((p) =>(
+       <div className='cart-info-container'>
+
+                
+           <li>{p.strPlayer} </li>
+          <button onClick={() => handleDelete(p.idPlayer)} className='delete-btn'></button>
+       </div>
+        ))
+        }
+        
        </div>
        </div>
 

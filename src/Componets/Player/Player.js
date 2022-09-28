@@ -3,7 +3,7 @@ import SinglePlayer from '../SinglePlayer/SinglePlayer';
 import './Player.css'
 
 
-const Player = ({players}) => {
+const Player = ({players,cart, setCart}) => {
     console.log(players);
     return (
         <div>
@@ -14,6 +14,8 @@ const Player = ({players}) => {
 
            <SinglePlayer  player={pd}
            key={pd.idPlayer}
+           cart={cart}
+           setCart={setCart}
            ></SinglePlayer>
 
        ))}
